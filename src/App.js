@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import { PropertyProvider } from './context/PropertyContext';
+import PropertyApp from './pages/PropertyApp';
+import ThemeProviderComponent from './context/ThemeProviderComponent'
+import { DisplayProvider } from './context/DisplayContext';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { MapboxProvider } from './context/MapboxContext';
+import { RTL } from './styledCmp/RTL';
+import { DialogManager } from './cmps/DialogManager';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  >
+      <Router>
+        <RTL>
+        <ThemeProviderComponent>
+          <DisplayProvider>
+            <PropertyProvider>
+              <MapboxProvider>
+                <DialogManager>
+                <Switch>
+                  <Route exact path="/">
+                    <PropertyApp/>
+                  </Route>
+                </Switch>
+                </DialogManager>
+              </MapboxProvider>
+            </PropertyProvider>
+          </DisplayProvider>
+        </ThemeProviderComponent>
+        </RTL>
+      </Router>
     </div>
   );
 }

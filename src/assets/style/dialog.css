@@ -1,0 +1,9 @@
+.mystyle::after {
+	content: "Aaaaaaaaaaaaa";
+	position: absolute;
+	left: -230px;
+	color: #ffffff94;
+	font-size: 50px;
+	transform: rotate(-45deg);
+	font-weight: 600;
+}

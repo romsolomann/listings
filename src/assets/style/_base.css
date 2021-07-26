@@ -1,0 +1,64 @@
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "Open Sans Hebrew", sans-serif;
+  line-height: 1.6;
+  height: 100%;
+}
+
+body {
+  transition: all 0.3s;
+  color: #62646a;
+  font-size: 16px;
+  margin: 0;
+  /*height: 100%;*/
+  font-family: "Open Sans Hebrew", sans-serif;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1;
+  color: black;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+input:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+
+img {
+  width: 150px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #d0d0d0;
+  border-radius: 15px;
+}
