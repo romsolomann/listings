@@ -20,7 +20,27 @@ const Map = ReactMapboxGl({
   maxZoom: 12,
   attributionControl: false,
 });
-
+const clusterMarker = (coordinates, pointCount) => {
+  return (
+    <Marker
+      coordinates={coordinates}
+      style={{
+        width: 8 * pointCount,
+        height: 8 * pointCount,
+        borderRadius: "50%",
+        backgroundColor: "var(--main-prop-color)",
+        color: "white",
+        fontSize: 12 + pointCount,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        cursor: "pointer",
+      }}
+    >
+      {pointCount}
+    </Marker>
+  );
+};
 export default function Mapbox({ districts, yeshuvim }) {
   let history = useHistory();
   const nDistricts = { type: "FeatureCollection", features: districts };
@@ -32,11 +52,13 @@ export default function Mapbox({ districts, yeshuvim }) {
     yeshuvim.forEach((yeshuv) => (yeshuv.is_clicked = 0));
     districts.forEach((district) => (district.is_clicked = 0));
     district.is_clicked = 1;
-    if (district.properties.district === "מחוז חיפה") setZoom(10);
-    else if (district.properties.district === "מחוז תל אביב") setZoom(11);
-    else if (district.properties.district === "מחוז המרכז") setZoom(9.5);
-    else setZoom(8.5);
     setCenter([district.properties.centre[1], district.properties.centre[0]]);
+    setTimeout(() => {
+      if (district.properties.district === "מחוז חיפה") setZoom(10);
+      else if (district.properties.district === "מחוז תל אביב") setZoom(11);
+      else if (district.properties.district === "מחוז המרכז") setZoom(9.5);
+      else setZoom(8.5);
+    }, 500);
     setFilterBy({ ...filterBy, district: [district.properties.district] });
     history.push({
       pathname: "/",
@@ -66,28 +88,6 @@ export default function Mapbox({ districts, yeshuvim }) {
       district: [],
       area: [yeshuv.properties.yeshuv],
     });
-  };
-
-  const clusterMarker = (coordinates, pointCount) => {
-    return (
-      <Marker
-        coordinates={coordinates}
-        style={{
-          width: 8 * pointCount,
-          height: 8 * pointCount,
-          borderRadius: "50%",
-          backgroundColor: "var(--main-prop-color)",
-          color: "white",
-          fontSize: 12 + pointCount,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          cursor: "pointer",
-        }}
-      >
-        {pointCount}
-      </Marker>
-    );
   };
 
   return (

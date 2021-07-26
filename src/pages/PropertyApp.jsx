@@ -12,7 +12,7 @@ import { useMapbox } from "../context/MapboxContext";
 
 export default function PropertyApp() {
   const { properties, yeshuvim, districts } = useProperty();
-  const isMobileScreen = useIsMobileScreen("sm");
+  const isMobileScreen = useIsMobileScreen();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const { closeDialog } = useDialogManager();
   const { isMapDisplay, setIsMapDisplay } = useMapbox();
@@ -36,35 +36,40 @@ export default function PropertyApp() {
         <Appheader />
         <div style={{ margin: "86px 24px 24px 24px" }}>
           <Grid container spacing={2} style={{ height: "100%" }}>
-            <Grid
-              container
-              item
-              xs={12}
-              md={7}
-              style={{
-                marginBottom: isMobileScreen ? "5rem" : "1rem",
-                display: isMapDisplay ? "none" : "block",
-              }}
-            >
-              <PropertiesPreview properties={properties} />
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={5}
-              style={{
-                height: "calc(100vh - 78px)",
-                display: isMobileScreen && !isMapDisplay ? "none" : "block",
-                position: "sticky",
-                top: 78,
-              }}
-            >
-              {yeshuvim && districts && (
-                <Paper elevation={3} style={{ height: "calc(100% - 16px)" }}>
-                  <Mapbox districts={districts} yeshuvim={yeshuvim} />
-                </Paper>
-              )}
-            </Grid>
+            {!isMapDisplay && (
+              <Grid
+                container
+                item
+                xs={12}
+                md={7}
+                style={{
+                  marginBottom: isMobileScreen ? "5rem" : "1rem",
+                }}
+              >
+                <PropertiesPreview properties={properties} />
+              </Grid>
+            )}
+            {isMobileScreen && !isMapDisplay ? (
+              <></>
+            ) : (
+              <Grid
+                item
+                xs={12}
+                md={5}
+                style={{
+                  height: "calc(100vh - 78px)",
+                  // display: isMobileScreen && !isMapDisplay ? "none" : "block",
+                  position: "sticky",
+                  top: 78,
+                }}
+              >
+                {yeshuvim && districts && (
+                  <Paper elevation={3} style={{ height: "calc(100% - 16px)" }}>
+                    <Mapbox districts={districts} yeshuvim={yeshuvim} />
+                  </Paper>
+                )}
+              </Grid>
+            )}
           </Grid>
         </div>
         {isMobileScreen ? (
