@@ -84,7 +84,6 @@ export default function Mapbox({ districts, yeshuvim }) {
           alignItems: "center",
           cursor: "pointer",
         }}
-        key={(pointCount + 3.5) * 12}
       >
         {pointCount}
       </Marker>
