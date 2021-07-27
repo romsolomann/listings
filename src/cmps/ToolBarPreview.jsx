@@ -44,7 +44,10 @@ export const EnhancedToolbar = () => {
           <div>
             {filterBy.district.length === 0
               ? "ישראל"
-              : filterBy.district.map((name) => name + ",")}
+              : filterBy.district.map((name, idx) => {
+                  if (filterBy.district.length === idx + 1) return name + ".";
+                  else return name + ",";
+                })}
           </div>
         ) : (
           <div> {filterBy.area.map((name) => name + ",")}</div>

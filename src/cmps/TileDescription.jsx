@@ -155,7 +155,9 @@ export default function TileDescription({ property }) {
               }}
             >
               <Typography style={{ fontWeight: "bold" }}>פתוח</Typography>
-              <LockOpenIcon />
+              <LockOpenIcon
+                style={{ fontSize: 20, marginRight: 5, marginTop: 2 }}
+              />
             </Grid>
           )}
         </Grid>

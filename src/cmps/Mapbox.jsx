@@ -18,7 +18,12 @@ const Map = ReactMapboxGl({
   maxZoom: 12,
   attributionControl: false,
 });
-const clusterMarker = (coordinates, pointCount) => {
+const clusterMarker = (coordinates, pointCount, getLeaves) => {
+  const arr = getLeaves(0);
+  let sum = 0;
+  arr.map((a) => {
+    sum += a.props.children;
+  });
   return (
     <Marker
       coordinates={coordinates}
@@ -35,7 +40,7 @@ const clusterMarker = (coordinates, pointCount) => {
         cursor: "pointer",
       }}
     >
-      {pointCount}
+      {sum}
     </Marker>
   );
 };
@@ -167,30 +172,32 @@ export default function Mapbox({ districts, yeshuvim }) {
           })}
           {/* ##CLUSTER CMP */}
           <Cluster ClusterMarkerFactory={clusterMarker} zoomOnClick={true}>
-            {nYeshuvim.features.map((feature, key) => (
-              <Marker
-                key={(key + 3) * 12}
-                style={{
-                  width: 20 * feature.properties.count,
-                  height: 20 * feature.properties.count,
-                  fontSize: 13 + feature.properties.count,
-                  borderRadius: "50%",
-                  backgroundColor: "var(--main-prop-color)",
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  cursor: "pointer",
-                }}
-                coordinates={[
-                  feature.properties.centre[1],
-                  feature.properties.centre[0],
-                ]}
-                onClick={() => handleYeshuvClick(feature)}
-              >
-                {feature.properties.count}
-              </Marker>
-            ))}
+            {nYeshuvim.features.map((feature, key) => {
+              return (
+                <Marker
+                  key={(key + 3) * 12}
+                  style={{
+                    width: 20 * feature.properties.count,
+                    height: 20 * feature.properties.count,
+                    fontSize: 13 + feature.properties.count,
+                    borderRadius: "50%",
+                    backgroundColor: "var(--main-prop-color)",
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "pointer",
+                  }}
+                  coordinates={[
+                    feature.properties.centre[1],
+                    feature.properties.centre[0],
+                  ]}
+                  onClick={() => handleYeshuvClick(feature)}
+                >
+                  {feature.properties.count}
+                </Marker>
+              );
+            })}
           </Cluster>
           <ZoomControl position="bottom-right" />
         </Map>
