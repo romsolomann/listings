@@ -3,37 +3,31 @@ import { lighten, makeStyles } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { useProperty } from "../context/PropertyContext";
+import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
 
-const useToolbarStyles = makeStyles((theme) => ({
+const useToolbarStyles = makeStyles((props) => ({
   root: {
-    paddingLeft: theme.spacing(2),
     paddingRight: 0,
   },
-  box: {
+  box: (props) => ({
     display: "flex",
+    fontSize: props.isMobileScreen ? "0.85rem" : "1.2rem",
     "& div": {
       marginLeft: 5,
-      fontSize: "1.2rem",
       color: "var(--main-prop-color)",
     },
-  },
-  highlight:
-    theme.palette.type === "light"
-      ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+  }),
   title: {
     flex: "1 1 100%",
   },
 }));
 
 export const EnhancedToolbar = () => {
-  const classes = useToolbarStyles();
+  const isMobileScreen = useIsMobileScreen();
+  const props = {
+    isMobileScreen,
+  };
+  const classes = useToolbarStyles(props);
   const { filterBy, queryProperties, properties } = useProperty();
 
   return (

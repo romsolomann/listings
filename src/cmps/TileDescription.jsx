@@ -2,6 +2,7 @@ import { CardContent, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const useStyles = makeStyles({
   root: {
@@ -145,7 +146,17 @@ export default function TileDescription({ property }) {
               </Typography>
             </Grid>
           ) : (
-            <Typography>פתוח</Typography>
+            <Grid
+              container
+              align={"center"}
+              justify={"center"}
+              style={{
+                color: "var(--positive-green-color)",
+              }}
+            >
+              <Typography style={{ fontWeight: "bold" }}>פתוח</Typography>
+              <LockOpenIcon />
+            </Grid>
           )}
         </Grid>
       </Grid>
