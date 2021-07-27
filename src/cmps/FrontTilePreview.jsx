@@ -2,8 +2,6 @@ import { Typography, CardActionArea, CardMedia, Grid } from "@material-ui/core";
 import TileDescription from "./TileDescription";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const IMAGES_LINK = "https://propdodev.ai";
 

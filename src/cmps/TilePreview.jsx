@@ -26,13 +26,13 @@ export default function PropertyPreview({ property }) {
 
   const handleClick = (property) => {
     console.log("property :>> ", property);
-    properties.forEach((property) => (property.is_clicked = 0));
-    property.is_clicked = 1;
-    setZoom(11);
-    setCenter([
-      property.property_details.centre[1],
-      property.property_details.centre[0],
-    ]);
+    // properties.forEach((property) => (property.is_clicked = 0));
+    // property.is_clicked = 1;
+    // setZoom(11);
+    // setCenter([
+    //   property.property_details.centre[1],
+    //   property.property_details.centre[0],
+    // ]);
   };
 
   return (

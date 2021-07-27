@@ -15,9 +15,7 @@ export default function AppFilterMobile() {
   const { loadProperties, filterBy, setFilterBy } = useProperty();
   const { setZoom, setCenter } = useMapbox();
 
-  const handleCloseFilter = () => {
-    closeDialog();
-  };
+  const handleCloseFilter = () => closeDialog();
 
   const handleFilter = (filter) => {
     setFilterBy({ ...filter });

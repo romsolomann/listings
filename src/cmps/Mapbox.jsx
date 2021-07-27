@@ -11,8 +11,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { useHistory } from "react-router-dom";
 import { useProperty } from "../context/PropertyContext";
 import { useMapbox } from "../context/MapboxContext";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -59,16 +57,24 @@ export default function Mapbox({ districts, yeshuvim }) {
       else if (district.properties.district === "מחוז המרכז") setZoom(9.5);
       else setZoom(8.5);
     }, 500);
-    setFilterBy({ ...filterBy, district: [district.properties.district] });
+    setFilterBy({
+      ...filterBy,
+      district: [district.properties.district],
+      area: [],
+    });
     history.push({
       pathname: "/",
       search: `?district=${district.properties.district}&area=&minPrice=0&maxPrice=20000000`,
     });
-    loadProperties({ ...filterBy, district: [district.properties.district] });
+    loadProperties({
+      ...filterBy,
+      district: [district.properties.district],
+      area: [],
+    });
   };
 
   const handleYeshuvClick = (yeshuv) => {
-    if (zoom < 8.5) return;
+    if (zoom < 7) return;
     districts.forEach((district) => (district.is_clicked = 0));
     yeshuvim.forEach((yeshuv) => (yeshuv.is_clicked = 0));
     yeshuv.is_clicked = 1;

@@ -1,15 +1,25 @@
 import { Grid, Typography, Chip } from "@material-ui/core";
 import { useProperty } from "../context/PropertyContext";
+import ChipsList from "./ChipsList";
 
 export default function ChipsFilter({ filterBy, handleFilter, isYeshuv }) {
   const { cities, divisions } = useProperty();
   const areas = isYeshuv ? cities : divisions;
 
-  const handleClick = (ev, area) => {
-    const value = area;
-    if (isYeshuv)
-      handleFilter({ ...filterBy, area: [...filterBy.area, value] });
-    else handleFilter({ ...filterBy, district: [...filterBy.district, value] });
+  const handleClick = (ev, zone) => {
+    const part = isYeshuv ? "area" : "district";
+    if (filterBy[part].includes(zone)) {
+      const areas = filterBy[part].slice();
+      areas.pop();
+      console.log("areas :>> ", areas);
+      if (isYeshuv) handleFilter({ ...filterBy, area: areas });
+      else handleFilter({ ...filterBy, district: areas });
+    } else {
+      if (isYeshuv)
+        handleFilter({ ...filterBy, area: [...filterBy.area, zone] });
+      else
+        handleFilter({ ...filterBy, district: [...filterBy.district, zone] });
+    }
   };
 
   return (
@@ -20,26 +30,11 @@ export default function ChipsFilter({ filterBy, handleFilter, isYeshuv }) {
         </Typography>
       </Grid>
       <Grid container item xs={12} style={{ flexWrap: "wrap" }}>
-        {areas.map((area, idx) => {
-          return (
-            <div key={idx} style={{ margin: "10px 0px 10px 10px" }}>
-              <Chip
-                label={area}
-                style={{
-                  cursor: "pointer",
-                  border: "1px solid lightgrey",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  // backgroundColor: zone.isClicked ? "#001145" : "white",
-                  // color: zone.isClicked ? "white" : "grey",
-                  transition: "all .5s",
-                }}
-                onClick={(ev) => handleClick(ev, area)}
-              />
-            </div>
-          );
-        })}
+        <ChipsList
+          areas={areas}
+          handleClick={handleClick}
+          isYeshuv={isYeshuv}
+        />
       </Grid>
     </Grid>
   );
