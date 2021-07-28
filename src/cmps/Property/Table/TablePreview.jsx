@@ -2,13 +2,13 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableContainer from "@material-ui/core/TableContainer";
-import { EnhancedToolbar } from "./ToolBarPreview";
+import { EnhancedToolbar } from "../ToolBarPreview";
 import { EnhancedTableHead } from "./TableHeader";
 import TableMainBody from "./TableMainBody";
-import TablePaging from "./PropertyPaging";
-import { useProperty } from "../context/PropertyContext";
-import NotFoundProperty from "./NotFoundProperty";
-import { useMapbox } from "../context/MapboxContext";
+import TablePaging from "../PropertyPaging";
+import { useProperty } from "../../../context/PropertyContext";
+import NotFoundProperty from "../NotFoundProperty";
+import { useMapbox } from "../../../context/MapboxContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -2,8 +2,8 @@ import { Grid } from "@material-ui/core";
 import { lighten, makeStyles } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { useProperty } from "../context/PropertyContext";
-import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
+import { useProperty } from "../../context/PropertyContext";
+import { useIsMobileScreen } from "../../hooks/useIsMobileScreen";
 
 const useToolbarStyles = makeStyles((props) => ({
   root: {

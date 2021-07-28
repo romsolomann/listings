@@ -1,10 +1,10 @@
 import { Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../../context/PropertyContext";
 import AreaFilter from "./AreaFilter";
 import PriceFilter from "./PriceFilter";
 import { useHistory, useLocation } from "react-router-dom";
-import { useMapbox } from "../context/MapboxContext";
+import { useMapbox } from "../../../context/MapboxContext";
 
 export default function AppFilter() {
   let history = useHistory();

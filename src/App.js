@@ -1,12 +1,12 @@
 import './App.css';
 import { PropertyProvider } from './context/PropertyContext';
-import PropertyApp from './pages/PropertyApp';
+import ListingsApp from './pages/ListingsApp';
 import ThemeProviderComponent from './context/ThemeProviderComponent'
 import { DisplayProvider } from './context/DisplayContext';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { MapboxProvider } from './context/MapboxContext';
 import { RTL } from './styledCmp/RTL';
-import { DialogManager } from './cmps/DialogManager';
+import { DialogManager } from './cmps/Dialogs/DialogManager';
 
 
 
@@ -22,7 +22,7 @@ function App() {
                 <DialogManager>
                 <Switch>
                   <Route exact path="/">
-                    <PropertyApp/>
+                    <ListingsApp/>
                   </Route>
                 </Switch>
                 </DialogManager>

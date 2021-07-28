@@ -5,7 +5,7 @@ import Select from "@material-ui/core/Select";
 import { useState } from "react";
 import PriceSlider from "./PriceSlider";
 import { Button } from "@material-ui/core";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../../context/PropertyContext";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {

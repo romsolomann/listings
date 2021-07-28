@@ -1,8 +1,8 @@
 import TilePreview from "./TilePreview";
 import { Grid, makeStyles } from "@material-ui/core";
-import { EnhancedToolbar } from "./ToolBarPreview";
-import { useProperty } from "../context/PropertyContext";
-import NotFoundProperty from "./NotFoundProperty";
+import { EnhancedToolbar } from "../ToolBarPreview";
+import { useProperty } from "../../../context/PropertyContext";
+import NotFoundProperty from "../NotFoundProperty";
 
 const usePropertyListStyled = makeStyles((theme) => ({
   root: {

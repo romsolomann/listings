@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../context/PropertyContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {

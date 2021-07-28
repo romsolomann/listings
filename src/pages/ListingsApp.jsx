@@ -1,34 +1,27 @@
 import Appheader from "../cmps/Appheader";
 import { useProperty } from "../context/PropertyContext";
 import { Grid, Paper } from "@material-ui/core";
-import PropertiesPreview from "../cmps/PropertiesPreview";
+import PropertiesPreview from "../cmps/Property/PropertiesPreview";
 import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
-import Mapbox from "../cmps/Mapbox";
+import Mapbox from "../cmps/Map/Mapbox";
 import { useState } from "react";
-import ToggleTableDisplay from "../cmps/ToggleTableDisplay";
+import ToggleMapDisplay from "../cmps/ToggleDisplay/ToggleMapDisplay";
 import { useEffect } from "react";
-import { useDialogManager } from "../cmps/DialogManager.js";
+import { useDialogManager } from "../cmps/Dialogs/DialogManager.js";
 import { useMapbox } from "../context/MapboxContext";
 
-export default function PropertyApp() {
+export default function ListingsApp() {
   const { properties, yeshuvim, districts } = useProperty();
-  const isMobileScreen = useIsMobileScreen();
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const isMobileScreen = useIsMobileScreen(825);
   const { closeDialog } = useDialogManager();
   const { isMapDisplay, setIsMapDisplay } = useMapbox();
 
-  const updateScreenWidth = () => {
-    setScreenWidth(window.innerWidth);
-  };
-
   useEffect(() => {
-    window.addEventListener("resize", updateScreenWidth);
-    if (screenWidth > 825) closeDialog();
-    if (screenWidth > 960) setIsMapDisplay(false);
-    return () => {
-      window.removeEventListener("resize", updateScreenWidth);
-    };
-  }, [screenWidth]);
+    if (!isMobileScreen) {
+      closeDialog();
+      setIsMapDisplay(false);
+    }
+  }, []);
 
   return (
     properties && (
@@ -58,7 +51,6 @@ export default function PropertyApp() {
                 md={5}
                 style={{
                   height: "calc(100vh - 78px)",
-                  // display: isMobileScreen && !isMapDisplay ? "none" : "block",
                   position: "sticky",
                   top: 78,
                 }}
@@ -73,7 +65,7 @@ export default function PropertyApp() {
           </Grid>
         </div>
         {isMobileScreen ? (
-          <ToggleTableDisplay
+          <ToggleMapDisplay
             setIsMapDisplay={setIsMapDisplay}
             isMapDisplay={isMapDisplay}
           />

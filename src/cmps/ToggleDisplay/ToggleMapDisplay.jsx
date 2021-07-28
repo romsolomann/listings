@@ -1,8 +1,8 @@
 import MapIcon from "@material-ui/icons/Map";
 import ViewModuleIcon from "@material-ui/icons/ViewModule";
-import { useMapbox } from "../context/MapboxContext";
+import { useMapbox } from "../../context/MapboxContext";
 
-export default function ToggleTableDisplay({ isMapDisplay, setIsMapDisplay }) {
+export default function ToggleMapDisplay({ isMapDisplay, setIsMapDisplay }) {
   const handleClick = () => {
     setIsMapDisplay((prevState) => (prevState = !prevState));
   };

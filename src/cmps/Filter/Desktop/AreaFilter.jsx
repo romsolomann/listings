@@ -3,9 +3,9 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import { CheckBox } from "@material-ui/icons";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../../context/PropertyContext";
 import { Grid } from "@material-ui/core";
-import { useMapbox } from "../context/MapboxContext";
+import { useMapbox } from "../../../context/MapboxContext";
 
 const checkedIcon = <CheckBox fontSize="small" />;
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;

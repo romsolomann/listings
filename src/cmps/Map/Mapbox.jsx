@@ -9,8 +9,8 @@ import {
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useHistory } from "react-router-dom";
-import { useProperty } from "../context/PropertyContext";
-import { useMapbox } from "../context/MapboxContext";
+import { useProperty } from "../../context/PropertyContext";
+import { useMapbox } from "../../context/MapboxContext";
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -19,9 +19,9 @@ const Map = ReactMapboxGl({
   attributionControl: false,
 });
 const clusterMarker = (coordinates, pointCount, getLeaves) => {
-  const arr = getLeaves(0);
+  const clusterArr = getLeaves(0);
   let sum = 0;
-  arr.map((a) => {
+  clusterArr.map((a) => {
     sum += a.props.children;
   });
   return (
@@ -177,9 +177,9 @@ export default function Mapbox({ districts, yeshuvim }) {
                 <Marker
                   key={(key + 3) * 12}
                   style={{
-                    width: 20 * feature.properties.count,
-                    height: 20 * feature.properties.count,
-                    fontSize: 13 + feature.properties.count,
+                    width: 20 + feature.properties.count,
+                    height: 20 + feature.properties.count,
+                    fontSize: 11 + feature.properties.count,
                     borderRadius: "50%",
                     backgroundColor: "var(--main-prop-color)",
                     color: "white",

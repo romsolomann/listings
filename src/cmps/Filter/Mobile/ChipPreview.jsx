@@ -1,7 +1,7 @@
 import { Chip } from "@material-ui/core";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../../context/PropertyContext";
 
 export default function ChipPreview({ area, handleClick, idx, isYeshuv }) {
   const [isClicked, setIsClicked] = useState(false);

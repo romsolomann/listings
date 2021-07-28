@@ -1,15 +1,15 @@
 import { Grid, Paper, Button } from "@material-ui/core";
-import AppFilter from "../cmps/AppFilter";
-import ToggleDisplayMode from "./ToggleTilesDisplay.jsx";
-import TileList from "../cmps/TileList";
-import TablePreview from "../cmps/TablePreview";
+import AppFilter from "../Filter/Desktop/AppFilter";
+import ToggleDisplayMode from "../ToggleDisplay/ToggleTilesDisplay.jsx";
+import TileList from "./Tiles/TileList";
+import TablePreview from "./Table/TablePreview";
 import PropertyPaging from "./PropertyPaging";
-import { useDisplayMode } from "../context/DisplayContext";
+import { useDisplayMode } from "../../context/DisplayContext";
 import { useRef } from "react";
-import AppFilterMobile from "./AppFilterMobile";
+import AppFilterMobile from "../Filter/Mobile/AppFilterMobile";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
-import { useDialogManager } from "./DialogManager";
+import { useIsMobileScreen } from "../../hooks/useIsMobileScreen";
+import { useDialogManager } from "../Dialogs/DialogManager";
 
 export default function PropertiesPreview({ properties, handleFilter }) {
   const { display } = useDisplayMode();

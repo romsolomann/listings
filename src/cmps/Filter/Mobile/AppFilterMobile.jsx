@@ -1,12 +1,12 @@
 import { Button, Grid, Typography } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
-import PriceSlider from "./PriceSlider";
-import { useProperty } from "../context/PropertyContext";
+import PriceSlider from "../Desktop/PriceSlider";
+import { useProperty } from "../../../context/PropertyContext";
 import { useHistory } from "react-router-dom";
-import { useMapbox } from "../context/MapboxContext";
+import { useMapbox } from "../../../context/MapboxContext";
 import ChipsFilter from "./ChipsFilter";
-import { useDialogManager } from "./DialogManager";
-import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
+import { useDialogManager } from "../../Dialogs/DialogManager";
+import { useIsMobileScreen } from "../../../hooks/useIsMobileScreen";
 
 export default function AppFilterMobile() {
   const isMobileScreen = useIsMobileScreen(825);

@@ -1,5 +1,5 @@
 import { Grid, Typography, Chip } from "@material-ui/core";
-import { useProperty } from "../context/PropertyContext";
+import { useProperty } from "../../../context/PropertyContext";
 import ChipsList from "./ChipsList";
 
 export default function ChipsFilter({ filterBy, handleFilter, isYeshuv }) {

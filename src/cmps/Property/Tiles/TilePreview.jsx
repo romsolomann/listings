@@ -1,11 +1,11 @@
 import ReactCardFlip from "react-card-flip";
 import Card from "@material-ui/core/Card";
-import { usePropertyPreview } from "../styledCmp/PropertyPreviewStyled";
+import { usePropertyPreview } from "../../../styledCmp/PropertyPreviewStyled";
 import { useState } from "react";
 import FrontTilePreview from "./FrontTilePreview";
 import BackTilePreview from "./BackTilePreview";
-import { useProperty } from "../context/PropertyContext";
-import { useMapbox } from "../context/MapboxContext";
+import { useProperty } from "../../../context/PropertyContext";
+import { useMapbox } from "../../../context/MapboxContext";
 
 export default function PropertyPreview({ property }) {
   const { properties } = useProperty();

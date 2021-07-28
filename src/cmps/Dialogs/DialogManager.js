@@ -2,8 +2,8 @@ import React, { useCallback, useContext, useRef, useState } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Slide from "@material-ui/core/Slide";
-import "../assets/style/dialog.css";
-import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
+import "../../assets/style/dialog.css";
+import { useIsMobileScreen } from "../../hooks/useIsMobileScreen";
 const DialogManagerContext = React.createContext({});
 
 const useStylesDialog = makeStyles({
