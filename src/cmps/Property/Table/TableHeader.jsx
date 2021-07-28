@@ -31,12 +31,6 @@ const headCells = [
     label: "ימים על המדף",
   },
   {
-    id: "is-locked",
-    numeric: true,
-    disablePadding: false,
-    label: "סטטוס עדכני",
-  },
-  {
     id: "details",
     numeric: false,
     disablePadding: false,
@@ -59,7 +53,7 @@ export function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={"right"}
+            align={"left"}
             padding={headCell.disablePadding ? "none" : "normal"}
           >
             <Typography className={classes.tableHeadCell}>

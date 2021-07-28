@@ -26,12 +26,13 @@ export default function PropertiesPreview({ properties, handleFilter }) {
       elevation={3}
       style={{
         height: "100%",
-        padding: "3px 10px",
+        padding: "15px",
         width: "100%",
+        position: "relative",
       }}
       ref={root}
     >
-      <Grid container item xs={12} style={{ marginTop: "0.5rem" }}>
+      <Grid container item xs={12} justify={"center"} alignItems={"flex-start"}>
         <Grid container item xs={10}>
           {isMobileScreen ? (
             <Button

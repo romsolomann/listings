@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default function BackTilePreview({ property, classes }) {
-  const handleDetailsClick = (ev, { id, days_locked }) => {
-    if (days_locked === 0) console.log("locked"); // need to pop up a dialog cmp
+  const handleDetailsClick = (ev, { id }) => {
     ev.stopPropagation();
     window.location.href = `https://propdo.ai/dashboard/il/listings/?id=${id}#forecast`;
   };

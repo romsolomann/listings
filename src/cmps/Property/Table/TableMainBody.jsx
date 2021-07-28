@@ -62,8 +62,7 @@ export default function TableMainBody({
   handleClick,
 }) {
   const classes = useStyles();
-  const handleDetailsClick = (ev, { id, days_locked }) => {
-    if (days_locked === 0) console.log("locked"); // need to pop up a dialog cmp
+  const handleDetailsClick = (ev, { id }) => {
     ev.stopPropagation();
     window.location.href = `https://propdo.ai/dashboard/il/listings/?id=${id}#forecast`;
   };
@@ -89,15 +88,15 @@ export default function TableMainBody({
                 id={labelId}
                 scope="property"
                 padding="none"
-                align="right"
+                align="left"
               >
                 {property.property_details.address[0]}
               </TableCell>
-              <TableCell align="right">
+              <TableCell align="left">
                 {property.pred.cv.toLocaleString("he-IL")} &nbsp;₪
               </TableCell>
-              <TableCell align="right">{property.pred.fv[1]}%</TableCell>
-              <TableCell align="right">
+              <TableCell align="left">{property.pred.fv[1]}%</TableCell>
+              <TableCell align="left">
                 {parseInt(property.pred.fv[0])}%
                 {parseInt(property.pred.fv[0]) > 100 ? (
                   <>
@@ -126,33 +125,10 @@ export default function TableMainBody({
                   </Typography>
                 )}
               </TableCell>
-              <TableCell align="right">
+              <TableCell align="left">
                 {getDaysOnAir(property.property_details.date)} ימים
               </TableCell>
-              <TableCell align="right">
-                {property.days_locked > 0 ? (
-                  <Typography
-                    style={{
-                      color: "var(--negative-red-color)",
-                      fontWeight: "bold",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    נעול
-                  </Typography>
-                ) : (
-                  <Typography
-                    style={{
-                      color: "var(--positive-green-color)",
-                      fontWeight: "bold",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    פתוח
-                  </Typography>
-                )}
-              </TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
                 <Button
                   className={classes.detailsBtn}
                   onClick={(ev) => handleDetailsClick(ev, property)}
@@ -161,17 +137,12 @@ export default function TableMainBody({
                   לפרטים
                 </Button>
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
                 <Button className={classes.btn}>לרכישה</Button>
               </TableCell>
             </TableRow>
           );
         })}
-      {/* {emptyRows > 0 && (
-        <TableRow style={{ height: 53 * emptyRows }}>
-          <TableCell colSpan={7} />
-        </TableRow>
-      )} */}
     </TableBody>
   );
 }

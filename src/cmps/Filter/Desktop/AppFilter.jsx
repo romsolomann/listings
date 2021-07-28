@@ -42,6 +42,7 @@ export default function AppFilter() {
       justify={"flex-start"}
       alignItems={"flex-start"}
       spacing={3}
+      style={{ marginBottom: "3.5rem" }}
     >
       <AreaFilter
         filterBy={filterBy}

@@ -23,11 +23,6 @@ export default function FrontTilePreview({ property, classes }) {
             <FontAwesomeIcon icon={faFireAlt} />
           </div>
         ) : null}
-        {property.days_locked > 0 ? (
-          <div className={classes.redBanner}>
-            <Typography>הכרטיס נעול</Typography>
-          </div>
-        ) : null}
         <div className={classes.imgContent}>
           <CardMedia
             className={classes.imgUrl}

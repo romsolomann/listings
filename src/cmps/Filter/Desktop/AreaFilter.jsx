@@ -50,7 +50,6 @@ export default function AreaFilter({ filterBy, handleFilter, isYeshuv }) {
           limitTags={0}
           onChange={handleInput}
           multiple
-          id="checkboxes-tags-demo"
           options={areas}
           disableCloseOnSelect
           getOptionLabel={(option) => option}
@@ -69,7 +68,7 @@ export default function AreaFilter({ filterBy, handleFilter, isYeshuv }) {
             <TextField
               {...params}
               variant="outlined"
-              label={isYeshuv ? "בחר עיר" : "בחר מחוז"}
+              label={isYeshuv ? "עיר" : "מחוז"}
               placeholder={isYeshuv ? "לדוגמא: תל אביב" : "לדוגמא: מחוז צפון"}
               size="small"
             />

@@ -39,7 +39,9 @@ export const usePropertyPreview = makeStyles({
       textAlign:'center',
       transition:'all 0.25s ease-out 0s',
       fontWeight:'bold',
+      marginLeft:'15px',
       whiteSpace:'nowrap',
+      marginRight:'5px',
       borderRadius:'30px',
       justifyContent:'center',
       backgroundColor:'#001145',
@@ -92,7 +94,7 @@ export const usePropertyPreview = makeStyles({
     },
     backTile:{
       backgroundColor:'#001145',
-      height:310,
+      height:260,
       color:'white',
       padding:'0 20px'
     }

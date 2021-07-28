@@ -5,7 +5,6 @@ const PropertyContext = createContext();
 
 export const PropertyProvider = ({children})=>{
     let location = useLocation();
-    
     const params = new URLSearchParams(location.search);
     const [properties,setProperties] = useState(null);
     const [queryProperties,setQueryProperties] = useState(null);
@@ -111,7 +110,6 @@ export const PropertyProvider = ({children})=>{
     }
 
     const getDistrictByName = ([districtName]) => {
-       
         return districts.find(district=> districtName === district.properties.district)
     }
 

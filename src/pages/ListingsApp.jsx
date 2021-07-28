@@ -4,7 +4,6 @@ import { Grid, Paper } from "@material-ui/core";
 import PropertiesPreview from "../cmps/Property/PropertiesPreview";
 import { useIsMobileScreen } from "../hooks/useIsMobileScreen";
 import Mapbox from "../cmps/Map/Mapbox";
-import { useState } from "react";
 import ToggleMapDisplay from "../cmps/ToggleDisplay/ToggleMapDisplay";
 import { useEffect } from "react";
 import { useDialogManager } from "../cmps/Dialogs/DialogManager.js";

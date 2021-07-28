@@ -2,7 +2,6 @@ import { CardContent, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +25,7 @@ export default function TileDescription({ property }) {
 
   return (
     <CardContent
-      style={{ height: 170, padding: "0 10px" }}
+      style={{ height: 120, padding: "0 10px" }}
       className={classes.root}
     >
       <Grid container className={classes.content}>
@@ -52,11 +51,7 @@ export default function TileDescription({ property }) {
             <Typography>{property.property_details.address[2]} </Typography>
           </Grid>
         </Grid>
-        <Grid
-          item
-          container
-          style={{ borderBottom: "1px solid lightgrey", padding: "5px 0" }}
-        >
+        <Grid item container style={{ padding: "5px 0" }}>
           <Grid
             container
             item
@@ -129,37 +124,6 @@ export default function TileDescription({ property }) {
               )}
             </Grid>
           </Grid>
-        </Grid>
-        <Grid
-          container
-          item
-          xs={12}
-          style={{ height: 54 }}
-          alignItems={"center"}
-          justify={"center"}
-        >
-          {property.days_locked > 0 ? (
-            <Grid container alignItems={"center"} justify={"center"}>
-              <Typography>ימים שנשארו:</Typography>
-              <Typography style={{ marginRight: "5px" }}>
-                {property.days_locked}
-              </Typography>
-            </Grid>
-          ) : (
-            <Grid
-              container
-              align={"center"}
-              justify={"center"}
-              style={{
-                color: "var(--positive-green-color)",
-              }}
-            >
-              <Typography style={{ fontWeight: "bold" }}>פתוח</Typography>
-              <LockOpenIcon
-                style={{ fontSize: 20, marginRight: 5, marginTop: 2 }}
-              />
-            </Grid>
-          )}
         </Grid>
       </Grid>
     </CardContent>
