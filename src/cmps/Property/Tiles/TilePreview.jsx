@@ -25,7 +25,6 @@ export default function PropertyPreview({ property }) {
   };
 
   const handleClick = (property) => {
-    console.log("property :>> ", property);
     // properties.forEach((property) => (property.is_clicked = 0));
     // property.is_clicked = 1;
     // setZoom(11);

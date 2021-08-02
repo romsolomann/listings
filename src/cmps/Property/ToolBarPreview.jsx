@@ -48,7 +48,13 @@ export const EnhancedToolbar = () => {
                 })}
           </div>
         ) : (
-          <div> {filterBy.area.map((name) => name + ",")}</div>
+          <div>
+            {" "}
+            {filterBy.area.map((name, idx) => {
+              if (filterBy.area.length === idx + 1) return name + ".";
+              else return name + ",";
+            })}
+          </div>
         )}
       </section>
     </Toolbar>

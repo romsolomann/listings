@@ -15,6 +15,7 @@ export default function AreaFilter({ filterBy, handleFilter, isYeshuv }) {
     useProperty();
   const { setZoom, setCenter } = useMapbox();
   const areas = isYeshuv ? cities : divisions;
+  const collator = new Intl.Collator("he");
 
   const handleInput = (ev, value) => {
     if (isYeshuv) handleFilter({ ...filterBy, area: value });
@@ -50,7 +51,7 @@ export default function AreaFilter({ filterBy, handleFilter, isYeshuv }) {
           limitTags={0}
           onChange={handleInput}
           multiple
-          options={areas}
+          options={areas.sort(collator.compare)}
           disableCloseOnSelect
           getOptionLabel={(option) => option}
           renderOption={(option, { selected }) => (

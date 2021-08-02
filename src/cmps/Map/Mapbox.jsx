@@ -28,12 +28,12 @@ const clusterMarker = (coordinates, pointCount, getLeaves) => {
     <Marker
       coordinates={coordinates}
       style={{
-        width: 8 * pointCount,
-        height: 8 * pointCount,
+        width: 45,
+        height: 45,
         borderRadius: "50%",
         backgroundColor: "var(--main-prop-color)",
         color: "white",
-        fontSize: 12 + pointCount,
+        fontSize: 16,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -177,9 +177,9 @@ export default function Mapbox({ districts, yeshuvim }) {
                 <Marker
                   key={(key + 3) * 12}
                   style={{
-                    width: 20 + feature.properties.count,
-                    height: 20 + feature.properties.count,
-                    fontSize: 11 + feature.properties.count,
+                    width: 45,
+                    height: 45,
+                    fontSize: 14,
                     borderRadius: "50%",
                     backgroundColor: "var(--main-prop-color)",
                     color: "white",
